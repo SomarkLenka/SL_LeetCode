@@ -16,4 +16,6 @@ Within each folder for /#N NAME OF PROBLEM/ where #N is the problem number and N
 
 
 To run the code yourself, simply download desired problem folder and execute test_#N.py
-Optionally, run "python test_#N.py 999999" where 999999 can be replaced with any number, as a seed, to generate and test new test cases.
+Optionally, run "python test_#N.py -s 999999" where 999999 can be replaced with any number, as a seed, to generate and test new test cases. Doing so will overwrite the current test_cases.json file as well.
+
+Ensure to have args module installed if receiving errors.

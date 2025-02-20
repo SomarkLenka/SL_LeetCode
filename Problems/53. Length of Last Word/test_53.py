@@ -19,18 +19,24 @@ class Test:
         self.solution = Solution()
     
     def load_test_cases(self, seed):
+
+        def gen_cases(self, gen_seed = seed):
+            test_cases = TestCases.generate_test_cases(seed)
+            print(f"Running tests with generated seed: {seed}")
+            return test_cases, seed
+        
         #Load test cases either from JSON file if it exists, or generate new ones
         if os.path.exists("test_cases.json"):
             with open("test_cases.json", "r") as file:
                 test_data = json.load(file)
                 seed_used = test_data["seed"]
+                if seed_used != seed:
+                    return gen_cases(seed)
                 test_cases = test_data["test_cases"]
                 print(f"Running tests with seed: {seed_used}")
                 return test_cases, seed_used
         else:
-            test_cases = TestCases.generate_test_cases(seed)
-            print(f"Running tests with generated seed: {seed}")
-            return test_cases, seed
+            return gen_cases(seed)
     
     def run_test_case(self, test_input, expected):
         #Run a single test case and return the result

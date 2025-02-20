@@ -1,8 +1,7 @@
 # SL_LeetCode
 A repository consisting of LeetCode solutions.
 
-Solutions to problems are located in /Problems/ 
-Each folder is titled per its leetcode problem number and given name.
+Solutions to problems are located in /Problems/ where each folder is titled per its leetcode problem number and given name.
 
 
 

@@ -9,19 +9,24 @@ class Test:
         self.solution = Solution()
     
     def load_test_cases(self):
-        """Load test cases either from JSON file if it exists, or generate new ones"""
+        #Load test cases either from JSON file if it exists, or generate new ones
         if os.path.exists("test_cases.json"):
             with open("test_cases.json", "r") as file:
-                return json.load(file)
-        return TestCases.generate_test_cases()
+                test_data = json.load(file)
+                seed_used = test_data["seed"]
+                test_cases = test_data["test_cases"]
+                print(f"Running tests with seed: {seed_used}")
+        else:
+            test_cases = TestCases.generate_test_cases(seed_used)
+            print(f"Running tests with generated seed: {SEED}")
     
     def run_test_case(self, test_input, expected):
-        """Run a single test case and return the result"""
+        #Run a single test case and return the result
         result = self.solution.lengthOfLastWord(test_input)
         return result == expected, result
     
     def run_tests(self, verbose=True):
-        """Run all test cases and report results"""
+        #Run all test cases and report results
         test_cases = self.load_test_cases()
         passed = 0
         failed = 0

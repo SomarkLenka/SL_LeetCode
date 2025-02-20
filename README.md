@@ -8,8 +8,8 @@ Solutions to problems are located in /Problems/ where each folder is titled per 
 Within each folder for /#N NAME OF PROBLEM/ where #N is the problem number and NAME OF PROBLEM is the name of the problem:
   - A .md file detailing the problem in question Ex. - NAME_OF_PROBLEM.md
   - A .py file containing the solution Ex. - NAME_OF_PROBLEM.py
-  - A .py file containing a test case generator for the problem Ex. - #N_testcase_gen.py
-  - A .json file containing test cases from the in-house generator, where SEED=999999 for random component of test cases Ex. - test_cases.json
+  - A .py file containing an in-house test case generator for the problem Ex. - #N_testcase_gen.py
+  - A .json file containing seed-based test cases from the in-house generator Ex. - test_cases.json
   - A .py file testing test cases against our solution, supports .json or re-generates testcases if .json does not exist Ex. - test_#N.py
 
 

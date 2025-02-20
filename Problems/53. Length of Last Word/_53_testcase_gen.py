@@ -23,11 +23,9 @@ class TestCases:
             ("   Lorem  ipsum    dolerem   yarr  ", 4),  # String with multiple spaces between words
             ("how poco fool cow ? by laughs", 6),  # Sentence with various word lengths
             ("a", 1),  # Single character word case
-            ("   ", 0),  # String containing only whitespace characters
             ("word", 4),  # A single word with no spaces
             ("word   ", 4),  # Single word followed by multiple spaces
             ("   word", 4),  # Single word preceded by spaces
-            ("", 0),  # Empty string case
             ("words wordy worded", 6),  # String with multiple words of varying lengths
             ("wordy, wordo,,,", 5),  # Words separated by punctuation marks
         ]

@@ -44,8 +44,19 @@ class TestCases:
         
         # Save the test cases to a JSON file for external use in another program.
         test_data = {"seed": seed, "test_cases": test_cases}
+        print("Writing seed: " + str(seed))
         with open("test_cases.json", "w") as file:
             json.dump(test_data, file, indent=4)
         
         # Return the list of test cases.
         return test_cases
+
+
+def parse_arguments():
+    #Parse command-line arguments for setting a custom seed
+    parser = argparse.ArgumentParser(description="Pass -s 999999 replacing 999999 with your desired seed")
+    parser.add_argument("-s", "--seed", type=int, default=SEED, help="Specify a seed if desired, default is 999999")
+    return parser.parse_args()
+
+args = parse_arguments()
+TestCases.generate_test_cases(args.seed)

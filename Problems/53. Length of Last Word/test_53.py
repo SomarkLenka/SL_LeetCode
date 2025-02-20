@@ -1,9 +1,18 @@
 import os
 import json
 import args
+import argparse
 
 from length_of_last_word import Solution
 from _53_testcase_gen import TestCases
+
+
+def parse_arguments():
+    #Parse command-line arguments for setting a custom seed
+    SEED = 999999
+    parser = argparse.ArgumentParser(description="Pass -s 999999 replacing 999999 with your desired seed")
+    parser.add_argument("-s", "--seed", type=int, default=SEED, help="Specify a seed if desired, default is 999999")
+    return parser.parse_args()
 
 class Test:
     def __init__(self):
@@ -54,12 +63,9 @@ class Test:
         
         return passed == total
         
-def parse_arguments():
-    #Parse command-line arguments for setting a custom seed
-    SEED = 999999
-    parser = argparse.ArgumentParser(description="Pass -s 999999 replacing 999999 with your desired seed")
-    parser.add_argument("-s", "--seed", type=int, default=SEED, help="Specify a seed if desired, default is 999999")
-    return parser.parse_args()
 
-args = parse_arguments()
-Test.run_tests(args.seed)
+
+if __name__ == "__main__":
+    args = parse_arguments()
+    test_instance = Test()
+    test_instance.run_tests(args.seed)

@@ -2,8 +2,15 @@ import random
 import string
 import json
 import args
+import argparse
 # Define a constant seed value to ensure reproducibility across test case generations.
 SEED = "999999"
+
+def parse_arguments():
+    #Parse command-line arguments for setting a custom seed
+    parser = argparse.ArgumentParser(description="Pass -s 999999 replacing 999999 with your desired seed")
+    parser.add_argument("-s", "--seed", type=int, default=SEED, help="Specify a seed if desired, default is 999999")
+    return parser.parse_args()
 
 class TestCases:
     def generate_test_cases(seed=SEED):
@@ -52,11 +59,9 @@ class TestCases:
         return test_cases
 
 
-def parse_arguments():
-    #Parse command-line arguments for setting a custom seed
-    parser = argparse.ArgumentParser(description="Pass -s 999999 replacing 999999 with your desired seed")
-    parser.add_argument("-s", "--seed", type=int, default=SEED, help="Specify a seed if desired, default is 999999")
-    return parser.parse_args()
 
-args = parse_arguments()
-TestCases.generate_test_cases(args.seed)
+
+if __name__ == "__main__":
+    args = parse_arguments()
+    TestCases.generate_test_cases(args.seed)
+

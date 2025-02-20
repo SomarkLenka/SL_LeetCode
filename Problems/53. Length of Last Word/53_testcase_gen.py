@@ -43,8 +43,9 @@ class TestCases:
             test_cases.append((s, expected))
         
         # Save the test cases to a JSON file for external use in another program.
+        test_data = {"seed": seed, "test_cases": test_cases}
         with open("test_cases.json", "w") as file:
-            json.dump(test_cases, file, indent=4)
+            json.dump(test_data, file, indent=4)
         
         # Return the list of test cases.
         return test_cases
